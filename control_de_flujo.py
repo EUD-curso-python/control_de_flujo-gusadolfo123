@@ -86,20 +86,27 @@ regresivo50.reverse()
 """Invierta la siguiente lista usando el bucle for y guarde el resultado en 
 `invertido` (sin hacer uso de la función `reversed` ni del método `reverse`)
 """
+
 lista2 = list(range(1, 70, 5))
-
-
-
-
+invertido = [lista2[i] for i in range(len(lista2) - 1, -1, -1)]
 
 """Guardar en `primos` una lista con todos los números primos desde el 37 al 300
 Nota: Un número primo es un número entero que no se puede calcular multiplicando 
 otros números enteros.
 """
 
+# forma 1
+#primos = [i for i in range(37, 301) if ([True for x in range(2, i) if (i % x) == 0].__contains__(True)) == False]
 
-
-
+# forma 2
+primos = []
+for i in range(37, 301):
+  esPrimo = True
+  for x in range(2, i):
+    if (i % x) == 0: 
+      esPrimo = False
+      break
+  if esPrimo == True: primos.append(i)
 
 """Guardar en `fibonacci` una lista con los primeros 60 términos de la serie de 
 Fibonacci.
@@ -110,9 +117,14 @@ del segundo cada uno se calcula sumando los dos anteriores términos de la serie
 
 """
 
-
-
-
+fibonacci = []
+for i in range(0, 60):
+  if i == 0:
+    fibonacci.append(i)
+  elif i == 1:
+    fibonacci.append(i)
+  else:
+    fibonacci.append(fibonacci[i-1] + fibonacci[i-2])
 
 """Guardar en `factorial` el factorial de 30
 El factorial (símbolo:!) Significa multiplicar todos los números enteros desde
@@ -123,9 +135,9 @@ Por ejemplo, el factorial de 5 se calcula así:
 5! = 5 × 4 × 3 × 2 × 1 = 120
 """
 
-
-
-
+factorial = 1
+for i in range(1, 31):
+  factorial *= i
 
 """Guarde en lista `pares` los elementos de la siguiente lista que esten 
 presentes en posiciones pares, pero solo hasta la posición 80.
@@ -133,26 +145,23 @@ presentes en posiciones pares, pero solo hasta la posición 80.
 
 lista3 = [941, 149, 672, 208, 99, 562, 749, 947, 251, 750, 889, 596, 836, 742, 512, 19, 674, 142, 272, 773, 859, 598, 898, 930, 119, 107, 798, 447, 348, 402, 33, 678, 460, 144, 168, 290, 929, 254, 233, 563, 48, 249, 890, 871, 484, 265, 831, 694, 366, 499, 271, 123, 870, 986, 449, 894, 347, 346, 519, 969, 242, 57, 985, 250, 490, 93, 999, 373, 355, 466, 416, 937, 214, 707, 834, 126, 698, 268, 217, 406, 334, 285, 429, 130, 393, 396, 936, 572, 688, 765, 404, 970, 159, 98, 545, 412, 629, 361, 70, 602]
 
-
-
-
-
+pares = [lista3[i] for i in range(0, len(lista3[0:81])) if i % 2 == 0]
 
 """Guarde en lista `cubos` el cubo (potencia elevada a la 3) de los números del 
 1 al 100. 
 """
 
-
-
-
+cubos = [i**3 for i in range(1, 101)]
 
 """Encuentre la suma de la serie 2 +22 + 222 + 2222 + .. hasta sumar 10 términos 
 y guardar resultado en variable `suma_2s` 
 """
 
+suma_2s = 0
+suma = [str('2') * i for i in range(1, 11)]
 
-
-
+for x in range(0, len(suma)):
+  suma_2s += int(suma[x])
 
 """Guardar en un string llamado `patron` el siguiente patrón llegando a una 
 cantidad máxima de asteriscos de 30. 
@@ -175,6 +184,11 @@ cantidad máxima de asteriscos de 30.
 *
 """
 
-
-
+items = [str('*') * i for i in range(1, 10)]
+patron = '\n'.join(items)
+patron += '\n'
+items.reverse()
+items.pop(0)
+patron += '\n'.join(items)
+print(patron)
 
