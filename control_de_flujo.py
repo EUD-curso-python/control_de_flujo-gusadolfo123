@@ -43,9 +43,7 @@ separados por coma, así:
 
 """
 
-
-
-
+tabla100 =  ','.join([str(i * 134) for i in range(1, 11)])
 
 """Guardar en `multiplos3` la cantidad de números que son múltiplos de 3 y 
 menores o iguales a 300 en la lista `lista1` que se define a continuación (la lista 
@@ -53,9 +51,7 @@ está ordenada).
 """
 lista1 = [12, 15, 20, 27, 32, 39, 42, 48, 55, 66, 75, 82, 89, 91, 93, 105, 123, 132, 150, 180, 201, 203, 231, 250, 260, 267, 300, 304, 310, 312, 321, 326]
 
-
-
-
+multiplos3 = len([i for i in lista1 if (i % 3 == 0) and (i < 300)])
 
 """Guardar en `regresivo50` una lista con la cuenta regresiva desde el número 
 50 hasta el 1, así:
@@ -72,9 +68,19 @@ lista1 = [12, 15, 20, 27, 32, 39, 42, 48, 55, 66, 75, 82, 89, 91, 93, 105, 123, 
 ]
 """
 
+regresivo50 = []
+i = 0
+while True:
+  if i == 0:
+    regresivo50.insert(i, str(1))
+  else:
+    regresivo50.insert(i, str(i + 1) + ' ' + regresivo50[i-1])
+  i += 1
+  
+  if i >= 50:
+    break;
 
-
-
+regresivo50.reverse()
 
 
 """Invierta la siguiente lista usando el bucle for y guarde el resultado en 
