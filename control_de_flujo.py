@@ -3,7 +3,11 @@
 usando el bucle while
 """
 
-
+naturales = []
+i = 1
+while i <= 100:
+  naturales.append(i)
+  i += 1
 
 
 """Guarde en `acumulado` una lista con el siguiente patrón:
@@ -13,16 +17,24 @@ usando el bucle while
 Hasta el número 50.
 """
 
+acumulado = []
+i = 1
+while True:
+  if i == 1:
+    acumulado.append(str(i))
+  else:
+    acumulado.append(acumulado[i-2] + ' ' + str(i))
+  i += 1
 
-
+  if i > 50:
+    break;
 
 """Guarde en `suma100` el entero de la suma de todos los números entre 1 y 100:
 """
 
-
-
-
-
+suma100 = 0
+for i in range(1, 101):
+  suma100 += i
 
 """Guarde en `tabla100` un string con los primeros 10 múltiplos del número 134, 
 separados por coma, así:
