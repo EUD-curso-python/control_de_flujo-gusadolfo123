@@ -184,11 +184,7 @@ cantidad máxima de asteriscos de 30.
 *
 """
 
-items = [str('*') * i for i in range(1, 10)]
+items = [str('*') * i for i in range(1, 31)]
+items2 = [str('*') * i for i in range(29, 0, -1)]
+items.extend(items2)
 patron = '\n'.join(items)
-patron += '\n'
-items.reverse()
-items.pop(0)
-patron += '\n'.join(items)
-print(patron)
-
